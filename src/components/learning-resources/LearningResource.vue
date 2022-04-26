@@ -3,7 +3,7 @@
         <base-card>
             <header>
                 <h3>{{ title }}</h3>
-                <base-button mode="flat">삭제</base-button>
+                <base-button mode="flat" @click="deleteInfo(id)">삭제</base-button>
             </header>
 
             <p>{{ description }}</p>
@@ -13,10 +13,15 @@
 </template>
 
 <script>
+    import {inject} from 'vue'
     export default {
-        props: ['title', 'description', 'link'],
+        // deleteInfo에서 id가 필요하니까 props로 받아오고 TheResource.vue에서 id를 :id="resource.id"로 연결해 줘야 한다.
+        props: ['id', 'title', 'description', 'link'],
         setup() {
-            return {}
+            const deleteInfo = inject('deleteInfo')
+            return {
+                deleteInfo
+            }
         }
     }
 </script>

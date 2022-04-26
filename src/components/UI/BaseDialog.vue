@@ -1,21 +1,23 @@
 <template>
-    <div></div>
-    <dialog open>
-        <header>
-            <slot name="header">
-                <!-- slot 안 <h2></h2>는 다른 내용이 없을 때 들어가는 default -->
-                <h2>{{ title }}</h2>
-            </slot>
-        </header>
+    <teleport to="body">
+        <div></div>
+        <dialog open>
+            <header>
+                <slot name="header">
+                    <!-- slot 안 <h2></h2>는 다른 내용이 없을 때 들어가는 default -->
+                    <h2>{{ title }}</h2>
+                </slot>
+            </header>
 
-        <section>
-            <slot></slot>
-        </section>
+            <section>
+                <slot></slot>
+            </section>
 
-        <menu>
-            <slot name="actions"></slot>
-        </menu>
-    </dialog>
+            <menu>
+                <slot name="actions"></slot>
+            </menu>
+        </dialog>
+    </teleport>
 
 </template>
 

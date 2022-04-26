@@ -3,7 +3,7 @@
     <base-card>
         <!-- custom component (여기서는 base-button)에 props or event lister를 추가할 경우
         default값으로 해당 custom component의 root element로 전달된다 (BaseButton에 있는 Button)-->
-        <base-button @click="setSelectedTab('StoredResources')" :mode='storedResButtonMode'>저장하기</base-button>
+        <base-button @click="setSelectedTab('StoredResources')" :mode='storedResButtonMode'>목록보기</base-button>
         <base-button @click="setSelectedTab('AddResource')" :mode='addResButtonMode'>추가하기</base-button>
     </base-card>
     <!-- <keep-alive> -->
@@ -67,8 +67,12 @@
                 console.log(storeResources)
             }
 
+            const deleteInfo = (resourceId) => {
+                storeResources.value = storeResources.value.filter(resource => resource.id !== resourceId)
+            }
 
             provide ('storeResources', storeResources)
+            provide ('deleteInfo', deleteInfo)
             return{
                 selectedTab,
                 setSelectedTab,
@@ -76,6 +80,7 @@
                 storedResButtonMode,
                 addResButtonMode,
                 saveInfo,
+                deleteInfo
             }
         }
     }
