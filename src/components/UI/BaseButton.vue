@@ -1,5 +1,5 @@
 <template>
-    <button :type="type" :class="mode">
+    <button :class="mode">
         <!--slot에 styling을 담아 전달하는 방식으로 아래의 props, 
         <style></style> 그리고 learningResource.vue 파일 참고  -->
         <slot></slot>
@@ -8,7 +8,7 @@
 
 <script>
     export default{
-        props: ['type', 'mode']
+        props: ['mode']
     }
 </script>
 

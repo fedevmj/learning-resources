@@ -20,7 +20,7 @@
         setup() {
             
             return {
-                // const streResources 배열 -> TheResource.vue로 이동
+                // const storedResources 배열 -> TheResource.vue로 이동
                 // storeResources,
                 TheHeader,
                 TheResource
