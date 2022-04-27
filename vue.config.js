@@ -1,4 +1,4 @@
 module.exports = {
     publicPath: '/<learningresources>/',
-    outputDir: 'docs'
+    outputDir: './docs'
 }
